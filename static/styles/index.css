@@ -75,11 +75,18 @@
 /* При нехватке места — одна колонка */
 @media (max-width: 720px){
     .main-content {
+        padding: 10px;
         grid-template-columns: 1fr;
+        .right {
+            width: 100%;
+        }
+        .left {
+            width: 100%;
+        }
     }
     :root {
         --gap: 12px;
-        --min-item: 50px;
+        --min-item: 40px;
         --max-cols: 8;
         --max-cols-main: 2;
         --min-main-item: 500px;

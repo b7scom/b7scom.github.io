@@ -18,32 +18,32 @@ const MyFooter = {
     data() {
         return {
             social_medias: [
-                {
-                    key: 'telegram',
-                    link: 'https://t.me/iCargoLife',
-                    label: 'telegram',
-                    username: 'iCargoLife',
-                    img: 'telegram.png'
-                },
+                // {
+                //     key: 'telegram',
+                //     link: 'https://t.me/iCargoLife',
+                //     label: 'telegram',
+                //     username: 'iCargoLife',
+                //     img: 'telegram.png'
+                // },
                 {
                     key: 'instagram',
-                    link: 'https://www.instagram.com/icargo.kz/',
+                    link: 'https://www.instagram.com/kulbanu.baibulatova1/',
                     label: 'instagram',
-                    username: 'icargo.kz',
+                    username: 'kulbanu.baibulatova1',
                     img: 'instagram.png'
                 },
                 {
                     key: 'whatsapp',
-                    link: 'https://wa.me/77000601036',
+                    link: 'https://wa.me/77773042162',
                     label: 'Whatsapp',
-                    username: 'icargo.kz',
+                    username: '77773042162',
                     img: 'whatsapp.gif'
                 },
                 {
                     key: 'phone',
-                    link: 'tel:+77000601036',
+                    link: 'tel:+77773042162',
                     label: 'phone',
-                    username: '+77000601036',
+                    username: '+77773042162',
                     img: 'phone.png'
                 }
             ]

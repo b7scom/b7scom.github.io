@@ -98,6 +98,7 @@ footer {
     flex-direction: row;
     justify-content: center;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .contact-kart {
@@ -105,6 +106,7 @@ footer {
     flex-direction: row;
     gap: 20px;
     align-items: center;
+    justify-content: left;
     cursor: pointer;
 }
 .contact-logo {
@@ -125,21 +127,24 @@ footer {
     transition: width 0.3s ease-in-out;
 }
 
-.contact-kart:hover .contact-wraper {
-    width: 250px;
-    .phone {
-        width: 200px;
-    }
-    .gmail {
-        width: 200px;
-    }
-    .telegram {
-        width: 150px;
-    }
-    .instagram {
-        width: 100px;
+.contact-kart:hover {
+    .contact-wraper {
+        width: auto;
+        /*.phone {*/
+        /*    width: 200px;*/
+        /*}*/
+        /*.gmail {*/
+        /*    width: 200px;*/
+        /*}*/
+        /*.telegram {*/
+        /*    width: 150px;*/
+        /*}*/
+        /*.instagram {*/
+        /*  width: 500px;*/
+        /*}*/
     }
 }
+
 
 .modal-container {
     margin: auto;
