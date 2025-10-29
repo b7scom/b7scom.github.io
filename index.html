@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEMO PAGE</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+    <script src="https://unpkg.com/vue-i18n@9/dist/vue-i18n.global.js"></script>
+
+    <script src="static/main.js"></script>
+
+    <script src="components/footer.js"></script>
+    <script src="components/header.js"></script>
+    <link rel="stylesheet" href="static/styles/main.css">
+    <link rel="stylesheet" href="static/styles/index.css">
+</head>
+<body>
+<div class="app" id="app">
+    <div class="main-container">
+        <my-header  :members="members" :member_model="member" @model_change="onModelChange"></my-header>
+        <div class="main-content">
+            <div class="left">
+                <div class="le-peronal" v-if="curentModel">
+                    <h1>Байбулатова Кулбану Сабировна {{year}} {{curentModel['member']}}</h1>
+                    <div class="personal personal-year">
+                        <h3 class="title">{{year}}: {{curentModel['personal_year']['title']}}</h3>
+                        <div class="description">
+                            {{curentModel['personal_year']['year_description']}}
+                        </div>
+                    </div>
+                    <div class="personal personal-month">
+                        <div class="title"></div>
+                        <div class="description">
+                            <h3 class="title">личный месяц: {{$t(`items.month.month_${month}`)}}</h3>
+                            <div class="description">
+                                {{curentModel['calendar'][month_list[month]]['personal_month_description']}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="personal personal-day">
+                        <h3 class="title">
+                            личный день: {{curentModel['calendar'][month_list[month]][day.toString()]['personal_day']}}
+                        </h3>
+                        <div class="description">
+                            {{curentModel['personal_day_descriptions'][curentModel['calendar'][month_list[month]][day.toString()]['personal_day']]}}
+                        </div>
+                    </div>
+                    <div class="to-do-not">
+                        {{$t(`items.week.week_${date.getDay()}`)}}
+                        <div class="list">
+                            <h3>{{$t(`items.to_do`)}}</h3>
+                            <div>
+                                {{ curentModel['to_do'][week_list[date.getDay()]] }}
+                            </div>
+                        </div>
+                        <div class="list">
+                            <h3>{{$t(`items.not_to_do`)}}</h3>
+                            <div>
+                                {{ curentModel['not_to_do'][week_list[date.getDay()]] }}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="right">
+                <div class="calendar-bread-crumb">
+                    <div class="yaer">{{year}}</div>
+                    <select id="month-select" class="month-select" v-model="month">
+                        <template v-for="opt in 12">
+                            <option :value="opt-1">{{$t(`items.month.month_${opt - 1}`)}}</option>
+                        </template>
+                    </select>
+                    <div></div>
+                </div>
+                <div class="grid-wrapper" v-if="curentModel">
+                    <div class="calendar-item wrap-text">{{$t('items.week.week_1')}}</div>
+                    <div class="calendar-item wrap-text">{{$t('items.week.week_2')}}</div>
+                    <div class="calendar-item wrap-text">{{$t('items.week.week_3')}}</div>
+                    <div class="calendar-item wrap-text">{{$t('items.week.week_4')}}</div>
+                    <div class="calendar-item wrap-text">{{$t('items.week.week_5')}}</div>
+                    <div class="calendar-item wrap-text" style=" background: #ffc891">{{$t('items.week.week_6')}}</div>
+                    <div class="calendar-item wrap-text" style=" background: #ffc891">{{$t('items.week.week_0')}}</div>
+                    <template v-for="d in month_days" :key="`day_${d.getDate()}_${d.getMonth()}`">
+                        <div
+                                aria-disabled
+                                v-if="d.getFullYear() !== year"
+                                :class="{
+                                'today': d.getDate() === today.getDate() && d.getMonth() === today.getMonth() && d.getFullYear() === today.getFullYear(),
+                                'selected-day': d.getDate() === day && d.getMonth() === month,
+                                'another-month': d.getMonth() !== month,
+                                'bg-red': pdColor(d) === 'red',
+                                'bg-green': pdColor(d) === 'green',
+                                'bg-orange': pdColor(d) === 'orange',
+                                }"
+                                class="calendar-item"
+                        >
+                            <div>{{d.getDate()}} {{(d.getDate() === today.getDate() && month === today.getMonth() && year === today.getFullYear()).toString()}}</div>
+
+                            <div class="p-day-calendar">
+                                персональный день
+                            </div>
+                        </div>
+                        <div
+                                v-else
+                                :class="{
+                                'today':  d.getDate() === today.getDate() && d.getMonth() === today.getMonth() && d.getFullYear() === today.getFullYear(),
+                                'selected-day': d.getDate() === day && d.getMonth() === month,
+                                'another-month': d.getMonth() !== month,
+                                'bg-red': pdColor(d) === 'red',
+                                'bg-green': pdColor(d) === 'green',
+                                'bg-orange': pdColor(d) === 'orange',
+                                }"
+                                class="calendar-item"
+                                @click="dateSelected(d)"
+                        >
+                            <div>{{d.getDate()}}</div>
+
+                            <div class="p-day-calendar">
+                                персональный день
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+
+        <my-footer ref="footer"></my-footer>
+    </div>
+</div>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                today: new Date(2025, 5,12),
+                day: new Date(2025, 5,12).getDate(),
+                // day: new Date().getDate(),
+                year: new Date(2025, 5,12).getFullYear(),
+                // year: new Date().getFullYear(),
+                month: new Date(2025, 5,12).getMonth(),
+                // month: new Date().getMonth(),
+                date: null,
+                member: 9,
+                members: [1,2,3,4,5,6,7,8,9],
+                database: {},
+                curentModel: null,
+                month_list: ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'],
+                week_list: ['sunday','monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+            };
+        },
+        async created() {
+            this.date = this.today;
+            await this.loadData()
+
+        },
+        methods: {
+            async loadData() {
+                const db = await fetch(`/db/y2025.json`).then(res => res.json());
+                this.database = db['2025'];
+                this.curentModel = this.database[`member_${this.member}`]
+            },
+            go_to(link) {
+                go_to(link)
+            },
+            onModelChange(model) {
+                this.member = model;
+                this.curentModel = this.database[`member_${this.member}`];
+            },
+            pdColor(day) {
+                let color = null;
+                color = this.curentModel['calendar'][this.month_list[day.getMonth()]][day.getDate().toString()]['day_by_color']
+                return color
+            },
+            dateSelected(date) {
+                this.year = date.getFullYear();
+                this.month = date.getMonth();
+                this.day = date.getDate();
+                this.date = date;
+            },
+            exportData() {
+                const data = this.filteredItems
+                const ws = XLSX.utils.json_to_sheet(data);
+                const wb = XLSX.utils.book_new();
+                XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+
+                XLSX.writeFile(wb, "data.xlsx");
+            },
+            exportJson() {
+                const data = this.filteredItems
+                const jsonData = JSON.stringify(data, null, 2);
+                const blob = new Blob([jsonData], { type: 'application/json' });
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = 'data.json';
+                link.click();
+                link.remove()
+            },
+            clearLocalStorage() {
+                localStorage.removeItem('lastPage')
+                localStorage.removeItem('sailingData')
+                location.reload()
+            }
+        },
+        computed: {
+            filteredItems () {
+                return this.table_data
+            },
+            paginateTable() {
+                const start = (this.currentPage - 1) * this.perPage
+                const end = start + this.perPage
+                return this.filteredItems.slice(start, end)
+            },
+            month_days() {
+                const days = []
+                const first_day = new Date(this.year, this.month, 1);
+                const last_day = new Date(this.year, this.month + 1, 0);
+
+                const week = first_day.getDay();
+                let fill = 0
+                if (week === 0) {
+                    fill = 6
+                } else if (week === 1) {
+                    fill = 7
+                } else {
+                    fill = week - 1
+                }
+                if (fill) {
+                    first_day.setDate(first_day.getDate() - 1)
+                    const start = first_day.getDate() - fill + 1
+                    for (let i = start; i < start + fill; i++) {
+                        days.push(new Date(first_day.getFullYear(), first_day.getMonth(), i))
+                    }
+                }
+                for (let i = 1; i < last_day.getDate() + 1; i++) {
+                    days.push(new Date(this.year, this.month, i))
+                }
+                const last_week = last_day.getDay()
+                fill = 7 - last_week
+                if (fill) {
+                    last_day.setDate(last_day.getDate() + fill)
+                    for (let i = 1; i < last_day.getDate() + 1; i++) {
+                        days.push(new Date(last_day.getFullYear(), last_day.getMonth(), i))
+                    }
+                }
+                return days;
+            }
+
+        },
+    });
+    if (typeof registerFooterComponent === 'function') {
+        registerFooterComponent(app);
+    }
+    if (typeof registerHeaderComponent === 'function') {
+        registerHeaderComponent(app);
+    }
+
+    app.use(i18n)
+    app.mount("#app");
+</script>
+
+</body>
+</html>
+
+<style></style>

@@ -1,0 +1,465 @@
+{
+  "year": 2025,
+  "calendar": {
+    "май": {
+      "30": {
+        "personal_day": 1,
+        "day_by_color": null
+      },
+      "2": {
+        "personal_day": 3,
+        "day_by_color": null
+      },
+      "7": {
+        "personal_day": 8,
+        "day_by_color": "green"
+      },
+      "9": {
+        "personal_day": 1,
+        "day_by_color": null
+      },
+      "5": {
+        "personal_day": 6,
+        "day_by_color": null
+      },
+      "4": {
+        "personal_day": 5,
+        "day_by_color": "orange"
+      },
+      "6": {
+        "personal_day": 7,
+        "day_by_color": null
+      },
+      "31": {
+        "personal_day": 1,
+        "day_by_color": null
+      }
+    },
+    "январь": {
+      "31": {
+        "personal_day": 1,
+        "day_by_color": null
+      },
+      "2": {
+        "personal_day": 3,
+        "day_by_color": null
+      },
+      "4": {
+        "personal_day": 5,
+        "day_by_color": "orange"
+      },
+      "3": {
+        "personal_day": 4,
+        "day_by_color": null
+      },
+      "5": {
+        "personal_day": 6,
+        "day_by_color": null
+      },
+      "6": {
+        "personal_day": 7,
+        "day_by_color": null
+      },
+      "8": {
+        "personal_day": 9,
+        "day_by_color": null
+      },
+      "1": {
+        "personal_day": 2,
+        "day_by_color": null
+      }
+    },
+    "февраль": {
+      "31": {
+        "personal_day": 1,
+        "day_by_color": null
+      },
+      "4": {
+        "personal_day": 5,
+        "day_by_color": "orange"
+      },
+      "3": {
+        "personal_day": 4,
+        "day_by_color": null
+      },
+      "5": {
+        "personal_day": 6,
+        "day_by_color": null
+      },
+      "7": {
+        "personal_day": 8,
+        "day_by_color": null
+      },
+      "6": {
+        "personal_day": 7,
+        "day_by_color": null
+      },
+      "8": {
+        "personal_day": 9,
+        "day_by_color": null
+      },
+      "1": {
+        "personal_day": 2,
+        "day_by_color": null
+      },
+      "2": {
+        "personal_day": 3,
+        "day_by_color": null
+      },
+      "28": {
+        "personal_day": 1,
+        "day_by_color": "orange"
+      },
+      "9": {
+        "personal_day": 1,
+        "day_by_color": null
+      }
+    },
+    "март": {
+      "28": {
+        "personal_day": 1,
+        "day_by_color": null
+      },
+      "5": {
+        "personal_day": 6,
+        "day_by_color": null
+      },
+      "3": {
+        "personal_day": 4,
+        "day_by_color": null
+      },
+      "7": {
+        "personal_day": 8,
+        "day_by_color": "green"
+      },
+      "9": {
+        "personal_day": 1,
+        "day_by_color": null
+      },
+      "2": {
+        "personal_day": 3,
+        "day_by_color": null
+      },
+      "1": {
+        "personal_day": 2,
+        "day_by_color": null
+      },
+      "8": {
+        "personal_day": 8,
+        "day_by_color": null
+      }
+    },
+    "апрель": {
+      "31": {
+        "personal_day": 1,
+        "day_by_color": null
+      },
+      "2": {
+        "personal_day": 3,
+        "day_by_color": null
+      },
+      "4": {
+        "personal_day": 5,
+        "day_by_color": null
+      },
+      "6": {
+        "personal_day": 7,
+        "day_by_color": null
+      },
+      "8": {
+        "personal_day": 9,
+        "day_by_color": null
+      },
+      "1": {
+        "personal_day": 2,
+        "day_by_color": null
+      },
+      "7": {
+        "personal_day": 8,
+        "day_by_color": "green"
+      },
+      "3": {
+        "personal_day": 4,
+        "day_by_color": null
+      },
+      "5": {
+        "personal_day": 6,
+        "day_by_color": null
+      },
+      "30": {
+        "personal_day": 1,
+        "day_by_color": null
+      }
+    },
+    "июнь": {
+      "31": {
+        "personal_day": 1,
+        "day_by_color": null
+      },
+      "2": {
+        "personal_day": 3,
+        "day_by_color": null
+      },
+      "4": {
+        "personal_day": 5,
+        "day_by_color": "orange"
+      },
+      "6": {
+        "personal_day": 7,
+        "day_by_color": "orange"
+      },
+      "9": {
+        "personal_day": 1,
+        "day_by_color": null
+      },
+      "7": {
+        "personal_day": 8,
+        "day_by_color": "green"
+      },
+      "5": {
+        "personal_day": 6,
+        "day_by_color": null
+      },
+      "3": {
+        "personal_day": 4,
+        "day_by_color": null
+      },
+      "1": {
+        "personal_day": 8,
+        "day_by_color": null
+      }
+    },
+    "июль": {
+      "30": {
+        "personal_day": 1,
+        "day_by_color": null
+      },
+      "2": {
+        "personal_day": 3,
+        "day_by_color": null
+      },
+      "4": {
+        "personal_day": 5,
+        "day_by_color": "orange"
+      },
+      "9": {
+        "personal_day": 1,
+        "day_by_color": null
+      },
+      "7": {
+        "personal_day": 8,
+        "day_by_color": null
+      },
+      "6": {
+        "personal_day": 7,
+        "day_by_color": null
+      },
+      "8": {
+        "personal_day": 9,
+        "day_by_color": null
+      },
+      "1": {
+        "personal_day": 2,
+        "day_by_color": null
+      },
+      "31": {
+        "personal_day": 1,
+        "day_by_color": null
+      }
+    },
+    "август": {
+      "31": {
+        "personal_day": 1,
+        "day_by_color": null
+      },
+      "2": {
+        "personal_day": 3,
+        "day_by_color": null
+      },
+      "1": {
+        "personal_day": 2,
+        "day_by_color": null
+      },
+      "4": {
+        "personal_day": 5,
+        "day_by_color": "orange"
+      },
+      "6": {
+        "personal_day": 7,
+        "day_by_color": null
+      },
+      "8": {
+        "personal_day": 9,
+        "day_by_color": null
+      },
+      "9": {
+        "personal_day": 1,
+        "day_by_color": null
+      },
+      "7": {
+        "personal_day": 8,
+        "day_by_color": "green"
+      }
+    },
+    "сентябрь": {
+      "1": {
+        "personal_day": 2,
+        "day_by_color": null
+      },
+      "3": {
+        "personal_day": 4,
+        "day_by_color": null
+      },
+      "5": {
+        "personal_day": 6,
+        "day_by_color": null
+      },
+      "2": {
+        "personal_day": 3,
+        "day_by_color": null
+      },
+      "4": {
+        "personal_day": 5,
+        "day_by_color": null
+      },
+      "6": {
+        "personal_day": 7,
+        "day_by_color": null
+      },
+      "8": {
+        "personal_day": 9,
+        "day_by_color": null
+      },
+      "9": {
+        "personal_day": 1,
+        "day_by_color": null
+      },
+      "7": {
+        "personal_day": 8,
+        "day_by_color": "green"
+      },
+      "30": {
+        "personal_day": 1,
+        "day_by_color": null
+      }
+    },
+    "октябрь": {
+      "30": {
+        "personal_day": 1,
+        "day_by_color": null
+      },
+      "2": {
+        "personal_day": 3,
+        "day_by_color": null
+      },
+      "4": {
+        "personal_day": 5,
+        "day_by_color": "orange"
+      },
+      "3": {
+        "personal_day": 4,
+        "day_by_color": null
+      },
+      "5": {
+        "personal_day": 6,
+        "day_by_color": null
+      },
+      "6": {
+        "personal_day": 7,
+        "day_by_color": null
+      },
+      "8": {
+        "personal_day": 9,
+        "day_by_color": null
+      },
+      "1": {
+        "personal_day": 2,
+        "day_by_color": null
+      },
+      "31": {
+        "personal_day": 1,
+        "day_by_color": null
+      }
+    },
+    "ноябрь": {
+      "31": {
+        "personal_day": 1,
+        "day_by_color": null
+      },
+      "4": {
+        "personal_day": 5,
+        "day_by_color": "orange"
+      },
+      "3": {
+        "personal_day": 4,
+        "day_by_color": null
+      },
+      "5": {
+        "personal_day": 6,
+        "day_by_color": null
+      },
+      "7": {
+        "personal_day": 8,
+        "day_by_color": null
+      },
+      "6": {
+        "personal_day": 7,
+        "day_by_color": null
+      },
+      "8": {
+        "personal_day": 9,
+        "day_by_color": null
+      },
+      "1": {
+        "personal_day": 2,
+        "day_by_color": null
+      },
+      "2": {
+        "personal_day": 3,
+        "day_by_color": null
+      },
+      "9": {
+        "personal_day": 1,
+        "day_by_color": null
+      }
+    },
+    "декабрь": {
+      "1": {
+        "personal_day": 2,
+        "day_by_color": null
+      },
+      "3": {
+        "personal_day": 4,
+        "day_by_color": null
+      },
+      "5": {
+        "personal_day": 6,
+        "day_by_color": null
+      },
+      "7": {
+        "personal_day": 8,
+        "day_by_color": "green"
+      },
+      "9": {
+        "personal_day": 1,
+        "day_by_color": null
+      },
+      "8": {
+        "personal_day": 9,
+        "day_by_color": null
+      },
+      "31": {
+        "personal_day": 1,
+        "day_by_color": null
+      },
+      "2": {
+        "personal_day": 3,
+        "day_by_color": null
+      },
+      "6": {
+        "personal_day": 7,
+        "day_by_color": null
+      }
+    }
+  }
+}

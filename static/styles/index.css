@@ -1,0 +1,172 @@
+:root {
+    --gap: 12px;
+    --min-item: 80px;
+    --max-cols: 8;
+    --max-cols-main: 2;
+    --min-main-item: 500px;
+    --font-07em: 0.7em;
+    --font-1em: 1em;
+    --pd-red: #710b0a;
+    --pd-green: #50A5A0;
+    --pd-orange: #F59A00;
+    --calendar-item-bg: none;
+    --calendar-wraper-bg: #e6eef2;
+}
+
+.bg-red {
+    background-color: var(--pd-red);
+}
+.bg-green {
+    background-color: var(--pd-green);
+}
+.bg-orange {
+    background-color: var(--pd-orange);
+}
+.text-center {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrap-text {
+    white-space: normal;
+    overflow-wrap: break-word; /* новое */
+    word-wrap: break-word;     /* старое (fallback) */
+}
+.grid-wrapper {
+    display: grid;
+    gap: var(--gap);
+    background: var(--calendar-wraper-bg);
+    /* auto-fit columns with min width 100px, each expands to fill */
+    /*grid-template-columns: repeat(auto-fit, minmax(var(--min-item), 1fr));*/
+    grid-template-columns: repeat(7, 1fr);
+    /* Prevent the grid from becoming wider than 7 columns:
+       width = 7 * min-item + 6 * gap (for 7 columns there are 6 gaps) */
+    max-width: calc(
+            var(--max-cols) * var(--min-item) + (var(--max-cols)) * var(--gap)
+    );
+
+    padding: 8px;
+    box-sizing: border-box;
+}
+.calendar-item {
+    height: var(--min-item);
+    max-width: calc(
+            var(--max-cols) * var(--min-item) / 7
+    );
+    display: flex;
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 6px;
+    flex-direction: column;
+    font-size: var(--font-1em);
+    border: 1px solid black;
+}
+.main-content {
+    display: grid;
+    /*grid-template-columns: 70% repeat(auto-fit, minmax(var(--min-main-item), 1fr));*/
+    grid-template-columns: minmax(0, 60%) minmax(var(--min-main-item), 1fr);
+    box-sizing: border-box;
+}
+
+/* При нехватке места — одна колонка */
+@media (max-width: 720px){
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+    :root {
+        --gap: 12px;
+        --min-item: 50px;
+        --max-cols: 8;
+        --max-cols-main: 2;
+        --min-main-item: 500px;
+        --font-07em: 0.5em;
+        --font-1em: 0.7em;
+    }
+}
+/* simple item styling */
+
+.p-day-calendar {
+    font-size: var(--font-07em);
+    text-wrap: wrap;
+}
+.calendar-bread-crumb {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: var(--gap);
+    max-width: calc(var(--max-cols) * var(--min-item) + (var(--max-cols)) * var(--gap));
+    padding: 8px;
+    box-sizing: border-box;
+}
+.month-select {
+    option {
+
+    }
+}
+.month-select, .year {
+    background: transparent;
+    color: black;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 6px 12px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: none;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+}
+.year:hover .year, .year:hover  .month-select {
+    color: white;
+    border: white 1px solid;
+}
+
+.month-select {
+    background: url("data:image/svg+xml;utf8,<svg fill='white' height='10' viewBox='0 0 24 24' width='10' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>") no-repeat right 10px center;
+    background-size: 10px;
+    padding-right: 25px;
+}
+
+/* Ховер эффект */
+.month-select:hover {
+    color: white;
+    border: white 1px solid;
+}
+
+
+/* Опционально: стилизуем выпадающий список */
+.month-select option {
+    background-color: white;
+    color: black;
+}
+
+.today {
+    box-shadow: inset #bd6600c4 0 0 7px 0px;
+}
+.selected-day {
+    border: rgb(187 0 0 / 24%) 1px solid;
+    box-shadow: inset rgba(13, 189, 0, 0.77) 0 0 7px 0px;
+}
+.another-month {
+    opacity: 70%;
+}
+
+
+
+.le-peronal {
+    width: 100%;
+}
+
+.to-do-not {
+    display: flex;
+    flex-direction: column;
+    .list {
+        display: flex;
+        flex-direction: column;
+    }
+}

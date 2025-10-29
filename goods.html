@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEMO PAGE</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+    <script src="https://unpkg.com/vue-i18n@9/dist/vue-i18n.global.js"></script>
+
+    <script src="static/main.js"></script>
+
+    <script src="components/footer.js"></script>
+    <script src="components/header.js"></script>
+    <link rel="stylesheet" href="static/styles/main.css">
+    <link rel="stylesheet" href="static/styles/kart.css">
+</head>
+<body>
+<div class="app" id="app">
+    <div class="main-container">
+        <my-header></my-header>
+        <div class="main-content">
+            <div class="kart-list">
+                <template v-for="kart in goods_list" :key="kart.key">
+                    <div class="kart" style="border: 1px solid gainsboro;">
+                        <div class="kart-A">
+                            <img class="kart-img" :src="`static/images/${kart.img}`">
+                            <div class="kart-label">
+                                <span>{{kart.label}}</span>
+                            </div>
+                        </div>
+                        <div class="kart-B">
+                            <div class="flip-kart-head">
+                                <img class="flip-kart-img" :src="`static/images/${kart.img}`" alt="">
+                                <div class="kart-label">
+                                    <span>{{kart.label}}</span>
+                                </div>
+                            </div>
+                            <div class="kart-description">
+                                <p>{{kart.description}}</p>
+                            </div>
+                            <div class="kart-price">💰 {{kart.price}} тенге</div>
+                            <br>
+                            <div style="cursor: pointer!important;color: cornflowerblue;" @click="go_to(kart.tg_post_link)">🚀к посту в телеграм</div>
+                            <div style="cursor: pointer!important;color: red" @click="go_to(kart.good_link)">🚀на сайт товара</div>
+
+                        </div>
+
+                    </div>
+                </template>
+            </div>
+        </div>
+        <my-footer></my-footer>
+    </div>
+</div>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                modal_open: false,
+                goods_list: []
+            };
+        },
+        methods: {
+            go_to(link) {
+                go_to(link)
+            }
+        },
+        created() {
+            for (let i = 0; i < 20; i++) {
+                this.goods_list.push({
+                    key: 'good_thing',
+                    label: `расческа dyson ${i + 1}`,
+                    img: 'demo_img.png',
+                    flip: false,
+                    good_link: 'https://mobile.yangkeduo.com/goods1.html?ps=BmBfbjksig',
+                    tg_post_link: 'https://t.me/iCargoLife/324',
+                    description: '✨ Элегантный и надёжный продукт, созданный для тех, кто ценит качество и современный дизайн 💎.\n' +
+                        'Изготовлен из прочных материалов 🧱, сочетает функциональность ⚙️ и стиль 🎨.\n' +
+                        'Подходит для повседневного использования 🏃‍♂️ и станет отличным дополнением к любому образу или интерьеру 🏡.\n' +
+                        'Идеальное сочетание цены 💰, практичности и эстетики 💫.',
+                    price: '1525'
+                })
+            }
+        }
+    });
+
+    if (typeof registerFooterComponent === 'function') {
+        registerFooterComponent(app);
+    }
+    if (typeof registerHeaderComponent === 'function') {
+        registerHeaderComponent(app);
+    }
+
+    app.use(i18n)
+    app.mount("#app");
+
+</script>
+
+</body>
+</html>
+
+<style>
+
+</style>
